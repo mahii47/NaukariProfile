@@ -1,15 +1,22 @@
 pipeline {
     agent any
 
-   stage('Build and Run') {
-    steps {
-        echo 'Running Selenium Java program...'
-        bat """
-            cd NaukariProject\\src\\main\\java
-            javac -cp ".;libs/*" NakariProfile.java
-            java -cp ".;libs/*" NakariProfile
-        """
-    }
-}
+    stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/mahii47/NaukariProfile', branch: 'main'
+            }
+        }
 
+        stage('Build and Run') {
+            steps {
+                echo 'Running Selenium Java program...'
+                bat """
+                    cd NaukariProject\\src\\main\\java
+                    javac -cp ".;libs/*" NakariProfile.java
+                    java -cp ".;libs/*" NakariProfile
+                """
+            }
+        }
+    }
 }
