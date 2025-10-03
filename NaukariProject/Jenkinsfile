@@ -3,17 +3,21 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-               git branch:'main',url:'https://github.com/mahii47/NaukariProfile'
+                git branch: 'main', url: 'https://github.com/mahii47/NaukariProfile'
             }
         }
         stage('Build') {
             steps {
-                bat 'mvn clean compile'
+                dir('NaukariProject') {
+                    bat 'mvn clean compile'
+                }
             }
         }
         stage('Run Tests') {
             steps {
-                bat 'mvn test'
+                dir('NaukariProject') {
+                    bat 'mvn test'
+                }
             }
         }
     }
