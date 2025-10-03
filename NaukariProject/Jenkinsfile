@@ -1,26 +1,19 @@
 pipeline {
     agent any
-
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/mahii47/NaukariProfile'
+                git 'https://github.com/mahii47/NaukariProfile'
             }
         }
-
         stage('Build') {
             steps {
-                dir('NaukariProject') {
-                    bat 'mvn clean compile'
-                }
+                bat 'mvn clean compile'
             }
         }
-
         stage('Run Tests') {
             steps {
-                dir('NaukariProject') {
-                    bat 'mvn test'
-                }
+                bat 'mvn test'
             }
         }
     }
