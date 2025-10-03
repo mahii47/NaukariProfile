@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build and Run') {
+            steps {
+                echo "Running Selenium Java program..."
+                bat 'javac -cp ".;libs/*" NakariProfile.java'
+                bat 'java -cp ".;libs/*" NakariProfile'
+            }
+        }
+    }
+}
