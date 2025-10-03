@@ -55,8 +55,7 @@ public class NakariProfileTest {
         Thread.sleep(2000);
 
         driver.findElement(By.id("attachCV"))
-        .sendKeys("C:\\Users\\mahma\\Downloads\\MaheshMankarResume.pdf");  
-          //    .sendKeys("C:\\Users\\mahma\\Downloads\\Software_Test_Engineer.pdf");
+             .sendKeys("C:\\Users\\mahma\\Downloads\\Software_Test_Engineer.pdf");
 
         Thread.sleep(10000);
 
